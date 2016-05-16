@@ -1,9 +1,9 @@
 # DMdriver
-An Arduino library for DM63x LED drve chips
+An Arduino library for DM63x LED driver chips
 (c) 2016 Dmitry Reznkov
 
 Full instutions can be found at Instructables.com:
-<insert link here once published>
+..insert link here once published..
 
 Excerpt:
 
