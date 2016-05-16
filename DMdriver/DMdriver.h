@@ -34,11 +34,6 @@
 #define LATpin_A6 A6
 #define LATpin_A7 A7
 
-//#define DM256PWM *pixel[k] // <<8 puts it in 8-bit resolution mode; for 16bit DM chips only
-//#define DMLEDTABLE uint8_t // uses look up table; type of data in the table (uint8_t HIGHLY RECOMMENDED!)
-//#define DMCHAIN 3 // alternative chain: 0-7, 16-31, 8-15 for 2 chips. Number of chips per segment
-                  // if defined with the previous, will be undefined after the lookup table is built
-
 /*** Get LAT low */
 #define LAT_low() *LATout &= ~LATbit
 
