@@ -2,7 +2,7 @@
 An Arduino library for DM63x LED driver chips
 (c) 2016 Dmitry Reznkov
 
-Full instutions can be found at Instructables.com:
+Full instructions can be found at Instructables.com:
 ..insert link here once published..
 
 Excerpt:
