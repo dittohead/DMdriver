@@ -1,6 +1,11 @@
 /*
-
-
+ * This is the header file of the Arduino library for DM63x LED driver chips
+ * (c) 2016 Dmitry Reznkov, dmitry@ultiblink.com
+ * The library is free software under GNU General Public License.
+ * You can use it any way you wish, but NO WARRANTY is provided.
+ *
+ * Special thanks: Alex Leone and his excellent Arduino TLC5940 library
+ * that served as an inspiration for this one.
 */
 #ifndef DM_library
 #define DM_library
@@ -61,7 +66,7 @@ class DMdriver
    void setGBCbyDriver(uint8_t *bri); // set individual Global Brightness Correction for each DM chip
    void turnOff(); // destructor; frees the dynamic memory; use init to start again
    void deallocLedTable(); // free the lookup table memory if not needed
-   uint8_t* pixel;  //actual bytes sent to the driver
+   volatile uint8_t* pixel;  //actual bytes sent to the driver
    
  private: 
    void dm_shift(uint8_t value);

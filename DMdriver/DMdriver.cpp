@@ -1,7 +1,12 @@
 /*
-
+ * This is the main file of the Arduino library for DM63x LED driver chips
+ * (c) 2016 Dmitry Reznkov, dmitry@ultiblink.com
+ * The library is free software under GNU General Public License.
+ * You can use it any way you wish, but NO WARRANTY is provided.
+ *
+ * Special thanks: Alex Leone and his excellent Arduino TLC5940 library
+ * that served as an inspiration for this one.
 */
-
 #include "Arduino.h"
 #include "DMdriver.h"
 
@@ -33,7 +38,7 @@ void DMdriver::init(DMLEDTABLE *table)
     LATreg = portModeRegister(LATport);
     LATout = portOutputRegister(LATport);
     DDRB |= _BV(PB3); // MOSI output
-    DDRB |= _BV(PB5); // SCK utput
+    DDRB |= _BV(PB5); // SCK output
     DDRB |= _BV(PB2); // SS output
     *LATreg |= LATbit; // LAT output
 
@@ -75,7 +80,7 @@ uint16_t DMdriver::getPoint(uint16_t pixNum)
 void DMdriver::sendAll()
 {
 	LAT_low();
-	
+	//cli();
 	uint16_t k = byteNum;
 	if (DMtype==32) do
 	{   k--;
@@ -126,7 +131,7 @@ void DMdriver::setPoint(uint16_t pixNum, uint16_t pixVal)
    { // starts in the middle
                      // keep first 4 bits intact | 4 top bits 
         pixel[place+1] = (pixel[place+1] & 0xF0) | (pixVal >> 8);
-                      // 8 lower bits of value
+		             // 8 lower bits of value
         pixel[place] = pixVal & 0xFF;
     } 
 }
@@ -172,6 +177,7 @@ uint16_t DMdriver::getPoint(uint16_t pixNum)
 
 void DMdriver::sendAll()
 {
+	//cli();
 	LAT_low();
 	
 	uint16_t k = byteNum;
@@ -181,6 +187,7 @@ void DMdriver::sendAll()
 	} while (k);
 	
 	LAT_pulse();
+	//sei();
 }
 #endif
 
