@@ -1,7 +1,7 @@
 /************************************************************************
 /*  The DMdriver Config file
 /*  Comment/uncomment and change defines below if needed
-/*  Dmitry Reznikov - ontaelio<at>gmail.com - May 2016
+/*  (c) 2016 Dmitry Reznikov - dmitry@ultiblink.com 
 /***********************************************************************/
 
 //#pragma GCC optimize ("-O2") // O2 optimization seems best for this library
