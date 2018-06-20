@@ -37,12 +37,12 @@ void DMdriver::init(DMLEDTABLE *table)
     LATport = digitalPinToPort(LATpin);
     LATreg = portModeRegister(LATport);
     LATout = portOutputRegister(LATport);
-    DDRB |= _BV(PB3); // MOSI output
-    DDRB |= _BV(PB5); // SCK output
-    DDRB |= _BV(PB2); // SS output
+    DDRB |= _BV(PB2); // MOSI output
+    DDRB |= _BV(PB1); // SCK output
+    DDRB |= _BV(PB6); // SS output
     *LATreg |= LATbit; // LAT output
 
-    PORTB &= ~_BV(PB5); // set SCK low
+    PORTB &= ~_BV(PB1); // set SCK low
 
     SPSR = _BV(SPI2X); // double SPI speed
     SPCR = _BV(SPE) | _BV(MSTR);    // enable SPI, master mode, SCK low rising edge
